@@ -75,6 +75,13 @@ def formatKeyValue(table, keyCol):
                 while value.endswith(' '):
                     value = value[:len(value)-1]
 
+                if value.find('\\"') >= 0:
+                    pass
+                elif value.find('\"') >= 0:
+                    value = value.replace('\"', '\\"')
+                else:
+                    pass
+
                 if len(key) > 0 and key != value and key != keyCloumName:
                     str_ios = "\""+ key + "\"" +" = " +"\""+ value + "\"" + ";" + "\n" 
                     str_android = "<string name=" + "\""+ key + "\">" + value + "</string>" + "\n"
